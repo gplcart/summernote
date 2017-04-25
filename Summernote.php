@@ -35,37 +35,6 @@ class Summernote extends Module
     }
 
     /**
-     * Module info
-     * @return array
-     */
-    public function info()
-    {
-        return array(
-            'name' => 'Summernote',
-            'version' => '1.0.0-dev',
-            'description' => 'Adds Summernote WYSIWYG editor',
-            'author' => 'Iurii Makukh ',
-            'core' => '1.x',
-            'license' => 'GPL-3.0+',
-            'configure' => 'admin/module/settings/summernote',
-            'settings' => array(
-                'config' => array(
-                    'height' => 150,
-                    'toolbar' => array(
-                        array('font', array('bold', 'italic', 'underline', 'clear')),
-                        array('style', array('style')),
-                        array('para', array('ul', 'ol')),
-                        array('table', array('table')),
-                        array('insert', array('link', 'picture', 'hr')),
-                        array('view', array('fullscreen', 'codeview'))
-                    )
-                ),
-                'selector' => array('textarea[data-wysiwyg="true"]'),
-            )
-        );
-    }
-
-    /**
      * Implements hook "library.list"
      * @param array $libraries
      */

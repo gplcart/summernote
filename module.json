@@ -1,0 +1,62 @@
+{
+    "name": "Summernote",
+    "version": "1.0.0-dev",
+    "description": "Adds Summernote WYSIWYG editor",
+    "author": "Iurii Makukh ",
+    "core": "1.x",
+    "license": "GPL-3.0+",
+    "configure": "admin/module/settings/summernote",
+    "settings": {
+        "config": {
+            "height": 150,
+            "toolbar": [
+                [
+                    "font",
+                    [
+                        "bold",
+                        "italic",
+                        "underline",
+                        "clear"
+                    ]
+                ],
+                [
+                    "style",
+                    [
+                        "style"
+                    ]
+                ],
+                [
+                    "para",
+                    [
+                        "ul",
+                        "ol"
+                    ]
+                ],
+                [
+                    "table",
+                    [
+                        "table"
+                    ]
+                ],
+                [
+                    "insert",
+                    [
+                        "link",
+                        "picture",
+                        "hr"
+                    ]
+                ],
+                [
+                    "view",
+                    [
+                        "fullscreen",
+                        "codeview"
+                    ]
+                ]
+            ]
+        },
+        "selector": [
+            "textarea[data-wysiwyg=\"true\"]"
+        ]
+    }
+}
