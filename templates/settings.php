@@ -13,7 +13,7 @@
       <div class="form-group required<?php echo $this->error('selector', ' has-error'); ?>">
         <label class="col-md-2 control-label"><?php echo $this->text('Selector'); ?></label>
         <div class="col-md-6">
-          <textarea name="settings[selector]" rows="4" class="form-control"><?php echo $this->escape($settings['selector']); ?></textarea>
+          <textarea name="settings[selector]" rows="4" class="form-control"><?php echo $this->e($settings['selector']); ?></textarea>
           <div class="help-block">
             <?php echo $this->error('selector'); ?>
             <div class="text-muted">
@@ -25,7 +25,7 @@
       <div class="form-group required<?php echo $this->error('config', ' has-error'); ?>">
         <label class="col-md-2 control-label"><?php echo $this->text('Config'); ?></label>
         <div class="col-md-6">
-          <textarea name="settings[config]" rows="4" class="form-control"><?php echo $this->escape($settings['config']); ?></textarea>
+          <textarea name="settings[config]" rows="4" class="form-control"><?php echo $this->e($settings['config']); ?></textarea>
           <div class="help-block">
             <?php echo $this->error('config'); ?>
             <div class="text-muted">
