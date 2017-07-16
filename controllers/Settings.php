@@ -44,7 +44,7 @@ class Settings extends BackendController
 
         $settings = $this->config->module('summernote');
         $settings['selector'] = implode("\n", $settings['selector']);
-        $settings['config'] = json_encode($settings['config']);
+        $settings['config'] = gplcart_json_encode($settings['config']);
 
         $this->setData('settings', $settings);
 
