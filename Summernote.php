@@ -9,8 +9,7 @@
 
 namespace gplcart\modules\summernote;
 
-use gplcart\core\Module,
-    gplcart\core\Library;
+use gplcart\core\Module;
 
 /**
  * Main class for Summernote module
@@ -19,19 +18,11 @@ class Summernote extends Module
 {
 
     /**
-     * Library class instance
-     * @var \gplcart\core\Library $library
+     * Constructor
      */
-    protected $library;
-
-    /**
-     * @param Library $library
-     */
-    public function __construct(Library $library)
+    public function __construct()
     {
         parent::__construct();
-
-        $this->library = $library;
     }
 
     /**
@@ -97,7 +88,7 @@ class Summernote extends Module
      */
     public function hookModuleEnableAfter()
     {
-        $this->library->clearCache();
+        $this->getLibrary()->clearCache();
     }
 
     /**
@@ -105,7 +96,7 @@ class Summernote extends Module
      */
     public function hookModuleDisableAfter()
     {
-        $this->library->clearCache();
+        $this->getLibrary()->clearCache();
     }
 
     /**
@@ -113,7 +104,7 @@ class Summernote extends Module
      */
     public function hookModuleInstallAfter()
     {
-        $this->library->clearCache();
+        $this->getLibrary()->clearCache();
     }
 
     /**
@@ -121,7 +112,7 @@ class Summernote extends Module
      */
     public function hookModuleUninstallAfter()
     {
-        $this->library->clearCache();
+        $this->getLibrary()->clearCache();
     }
 
 }
