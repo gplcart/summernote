@@ -15,7 +15,7 @@
       <div class="help-block">
         <?php echo $this->error('selector'); ?>
         <div class="text-muted">
-          <?php echo $this->text('A list of textarea selectors to convert into Summernote editor. One per line.'); ?>
+          <?php echo $this->text('A list of textarea CSS selectors, one per line.'); ?>
         </div>
       </div>
     </div>
