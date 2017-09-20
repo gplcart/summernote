@@ -1,5 +1,5 @@
-/* global GplCart, jQuery */
-(function (GplCart, $) {
+/* global Gplcart, jQuery */
+(function (Gplcart, $) {
 
     "use strict";
 
@@ -7,12 +7,12 @@
      * Adds Summernote WYSIWYG editor to input elements
      * @returns {undefined}
      */
-    GplCart.onload.moduleSummernoteLoad = function () {
+    Gplcart.onload.moduleSummernoteLoad = function () {
 
-        var input, inline, settings = GplCart.settings.summernote.config;
+        var input, inline, settings = Gplcart.settings.summernote.config;
 
         if ($.fn.summernote) {
-            $.each(GplCart.settings.summernote.selector, function (i, v) {
+            $.each(Gplcart.settings.summernote.selector, function (i, v) {
                 input = $(v);
                 if (input.length !== 0) {
                     inline = input.data('wysiwyg-settings');
@@ -25,4 +25,4 @@
         }
     };
 
-})(GplCart, jQuery);
+})(Gplcart, jQuery);
