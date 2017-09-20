@@ -32,8 +32,8 @@ class Summernote extends Module
     public function hookLibraryList(array &$libraries)
     {
         $libraries['summernote'] = array(
-            'name' => 'Summernote',
-            'description' => 'Super simple WYSIWYG Editor',
+            'name' => /* @text */'Summernote',
+            'description' => /* @text */'Super simple WYSIWYG Editor',
             'type' => 'asset',
             'module' => 'summernote',
             'url' => 'https://github.com/summernote/summernote',
