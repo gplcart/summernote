@@ -76,10 +76,9 @@ class Summernote extends Module
         $settings = $this->config->module('summernote');
 
         if (!empty($settings['selector']) && is_array($settings['selector'])) {
-            $options = array('aggregate' => false);
             $controller->setJsSettings('summernote', $settings);
-            $controller->addAssetLibrary('summernote', $options);
-            $controller->setJs('system/modules/summernote/js/common.js', $options);
+            $controller->addAssetLibrary('summernote');
+            $controller->setJs('system/modules/summernote/js/common.js');
         }
     }
 
