@@ -9,7 +9,8 @@
 
 namespace gplcart\modules\summernote;
 
-use gplcart\core\Module;
+use gplcart\core\Module,
+    gplcart\core\Config;
 
 /**
  * Main class for Summernote module
@@ -18,11 +19,11 @@ class Summernote extends Module
 {
 
     /**
-     * Constructor
+     * @param Config $config
      */
-    public function __construct()
+    public function __construct(Config $config)
     {
-        parent::__construct();
+        parent::__construct($config);
     }
 
     /**
@@ -73,7 +74,7 @@ class Summernote extends Module
      */
     public function hookConstructControllerBackend($controller)
     {
-        $settings = $this->config->module('summernote');
+        $settings = $this->config->getFromModule('summernote');
 
         if (!empty($settings['selector']) && is_array($settings['selector'])) {
             $controller->setJsSettings('summernote', $settings);
