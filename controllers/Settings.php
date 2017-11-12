@@ -42,14 +42,22 @@ class Settings extends BackendController
         $this->setTitleEditSettings();
         $this->setBreadcrumbEditSettings();
 
+        $this->setDataModuleSettings();
+
+        $this->submitSettings();
+        $this->outputEditSettings();
+    }
+
+    /**
+     * Sets module settings
+     */
+    protected function setDataModuleSettings()
+    {
         $settings = $this->config->getFromModule('summernote');
         $settings['selector'] = implode("\n", $settings['selector']);
         $settings['config'] = gplcart_json_encode($settings['config'], true);
 
         $this->setData('settings', $settings);
-
-        $this->submitSettings();
-        $this->outputEditSettings();
     }
 
     /**

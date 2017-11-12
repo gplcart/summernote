@@ -21,13 +21,13 @@
     </div>
   </div>
   <div class="form-group required<?php echo $this->error('config', ' has-error'); ?>">
-    <label class="col-md-2 control-label"><?php echo $this->text('Config'); ?></label>
+    <label class="col-md-2 control-label"><?php echo $this->text('Configuration'); ?></label>
     <div class="col-md-6">
       <textarea name="settings[config]" rows="10" class="form-control"><?php echo $this->e($settings['config']); ?></textarea>
       <div class="help-block">
         <?php echo $this->error('config'); ?>
         <div class="text-muted">
-          <?php echo $this->text('A JSON string with global <a target="_blank" href="http://summernote.org/getting-started">configuration</a>. You can override this configuration with the inline settings from the <i>data-wysiwyg-settings</i> attribute'); ?>
+          <?php echo $this->text('A JSON string with global <a target="_blank" href="http://summernote.org/getting-started">configuration</a>. You can override this configuration with inline settings from <i>data-summernote-editor-settings</i> attribute'); ?>
         </div>
       </div>
     </div>

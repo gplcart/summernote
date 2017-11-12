@@ -15,7 +15,7 @@
             $.each(Gplcart.settings.summernote.selector, function (i, v) {
                 input = $(v);
                 if (input.length !== 0) {
-                    inline = input.data('wysiwyg-settings');
+                    inline = input.data('summernote-editor-settings');
                     if (inline && typeof inline === 'object') {
                         settings = $.extend(settings, inline);
                     }

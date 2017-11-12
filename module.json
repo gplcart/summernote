@@ -56,7 +56,9 @@
             ]
         },
         "selector": [
-            "textarea[data-wysiwyg=\"true\"]"
+            "textarea[name*=\"page[description\"]",
+            "textarea[name*=\"category[description\"]",
+            "textarea[name*=\"product[description\"]"
         ]
     }
 }
