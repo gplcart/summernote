@@ -74,13 +74,7 @@ class Summernote extends Module
      */
     public function hookConstructControllerBackend($controller)
     {
-        $settings = $this->config->getFromModule('summernote');
-
-        if (!empty($settings['selector']) && is_array($settings['selector'])) {
-            $controller->setJsSettings('summernote', $settings);
-            $controller->addAssetLibrary('summernote');
-            $controller->setJs('system/modules/summernote/js/common.js');
-        }
+        $this->setModuleAssets($controller);
     }
 
     /**
@@ -113,6 +107,22 @@ class Summernote extends Module
     public function hookModuleUninstallAfter()
     {
         $this->getLibrary()->clearCache();
+    }
+
+    /**
+     * Sets module specific assets
+     * @param \gplcart\core\controllers\backend\Controller $controller
+     */
+    protected function setModuleAssets($controller)
+    {
+        if (!$controller->isInternalRoute()) {
+            $settings = $this->config->getFromModule('summernote');
+            if (!empty($settings['selector']) && is_array($settings['selector'])) {
+                $controller->setJsSettings('summernote', $settings);
+                $controller->addAssetLibrary('summernote');
+                $controller->setJs('system/modules/summernote/js/common.js');
+            }
+        }
     }
 
 }
