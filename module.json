@@ -56,9 +56,9 @@
             ]
         },
         "selector": [
-            "textarea[name*=\"page[description\"]",
-            "textarea[name*=\"category[description\"]",
-            "textarea[name*=\"product[description\"]"
+            "textarea[name^=\"product\"][name$=\"[description]\"]:not([name*=\"images\"])",
+            "textarea[name^=\"page\"][name$=\"[description]\"]:not([name*=\"images\"])",
+            "textarea[name^=\"category\"][name$=\"[description]\"]:not([name*=\"images\"])"
         ]
     }
 }
