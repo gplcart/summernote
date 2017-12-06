@@ -9,21 +9,35 @@
 
 namespace gplcart\modules\summernote;
 
-use gplcart\core\Module,
-    gplcart\core\Config;
+use gplcart\core\Library,
+    gplcart\core\Module;
 
 /**
  * Main class for Summernote module
  */
-class Summernote extends Module
+class Summernote
 {
 
     /**
-     * @param Config $config
+     * Module class instance
+     * @var \gplcart\core\Module $module
      */
-    public function __construct(Config $config)
+    protected $module;
+
+    /**
+     * Library class instance
+     * @var \gplcart\core\Library $library
+     */
+    protected $library;
+
+    /**
+     * @param Module $module
+     * @param Library $library
+     */
+    public function __construct(Module $module, Library $library)
     {
-        parent::__construct($config);
+        $this->module = $module;
+        $this->library = $library;
     }
 
     /**
@@ -82,7 +96,7 @@ class Summernote extends Module
      */
     public function hookModuleEnableAfter()
     {
-        $this->getLibrary()->clearCache();
+        $this->library->clearCache();
     }
 
     /**
@@ -90,7 +104,7 @@ class Summernote extends Module
      */
     public function hookModuleDisableAfter()
     {
-        $this->getLibrary()->clearCache();
+        $this->library->clearCache();
     }
 
     /**
@@ -98,7 +112,7 @@ class Summernote extends Module
      */
     public function hookModuleInstallAfter()
     {
-        $this->getLibrary()->clearCache();
+        $this->library->clearCache();
     }
 
     /**
@@ -106,23 +120,30 @@ class Summernote extends Module
      */
     public function hookModuleUninstallAfter()
     {
-        $this->getLibrary()->clearCache();
+        $this->library->clearCache();
     }
 
     /**
      * Sets module specific assets
      * @param \gplcart\core\controllers\backend\Controller $controller
+     * @return bool
      */
     protected function setModuleAssets($controller)
     {
-        if (!$controller->isInternalRoute()) {
-            $settings = $this->config->getFromModule('summernote');
-            if (!empty($settings['selector']) && is_array($settings['selector'])) {
-                $controller->setJsSettings('summernote', $settings);
-                $controller->addAssetLibrary('summernote');
-                $controller->setJs('system/modules/summernote/js/common.js');
-            }
+        if ($controller->isInternalRoute()) {
+            return false;
         }
+
+        $settings = $this->module->getSettings('summernote');
+
+        if (empty($settings['selector']) || !is_array($settings['selector'])) {
+            return false;
+        }
+
+        $controller->setJsSettings('summernote', $settings);
+        $controller->addAssetLibrary('summernote');
+        $controller->setJs('system/modules/summernote/js/common.js');
+        return true;
     }
 
 }
