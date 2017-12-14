@@ -2,7 +2,7 @@
     "name": "Summernote",
     "version": "1.0.0-dev",
     "description": "Adds Summernote WYSIWYG editor",
-    "author": "Iurii Makukh ",
+    "author": "Iurii Makukh <gplcart.software@gmail.com>",
     "core": "1.x",
     "license": "GPL-3.0+",
     "configure": "admin/module/settings/summernote",
