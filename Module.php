@@ -10,12 +10,12 @@
 namespace gplcart\modules\summernote;
 
 use gplcart\core\Library,
-    gplcart\core\Module;
+    gplcart\core\Module as CoreModule;
 
 /**
  * Main class for Summernote module
  */
-class Summernote
+class Module
 {
 
     /**
@@ -31,10 +31,10 @@ class Summernote
     protected $library;
 
     /**
-     * @param Module $module
+     * @param CoreModule $module
      * @param Library $library
      */
-    public function __construct(Module $module, Library $library)
+    public function __construct(CoreModule $module, Library $library)
     {
         $this->module = $module;
         $this->library = $library;
