@@ -9,8 +9,8 @@
 
 namespace gplcart\modules\summernote;
 
-use gplcart\core\Module,
-    gplcart\core\Library;
+use gplcart\core\Library;
+use gplcart\core\Module;
 
 /**
  * Main class for Summernote module
@@ -47,8 +47,8 @@ class Main
     public function hookLibraryList(array &$libraries)
     {
         $libraries['summernote'] = array(
-            'name' => /* @text */'Summernote',
-            'description' => /* @text */'Super simple WYSIWYG Editor',
+            'name' => 'Summernote', // @text
+            'description' => 'Super simple WYSIWYG Editor', // @text
             'type' => 'asset',
             'module' => 'summernote',
             'url' => 'https://github.com/summernote/summernote',
