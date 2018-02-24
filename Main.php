@@ -130,20 +130,14 @@ class Main
      */
     protected function setModuleAssets($controller)
     {
-        if ($controller->isInternalRoute()) {
-            return false;
+        if (!$controller->isInternalRoute()) {
+            $settings = $this->module->getSettings('summernote');
+            if (!empty($settings['selector']) && is_array($settings['selector'])) {
+                $controller->setJsSettings('summernote', $settings);
+                $controller->addAssetLibrary('summernote');
+                $controller->setJs('system/modules/summernote/js/common.js');
+            }
         }
-
-        $settings = $this->module->getSettings('summernote');
-
-        if (empty($settings['selector']) || !is_array($settings['selector'])) {
-            return false;
-        }
-
-        $controller->setJsSettings('summernote', $settings);
-        $controller->addAssetLibrary('summernote');
-        $controller->setJs('system/modules/summernote/js/common.js');
-        return true;
     }
 
 }

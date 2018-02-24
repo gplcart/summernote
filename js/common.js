@@ -5,7 +5,6 @@
 
     /**
      * Adds Summernote WYSIWYG editor to input elements
-     * @returns {undefined}
      */
     Gplcart.onload.moduleSummernoteLoad = function () {
 

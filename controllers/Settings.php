@@ -9,21 +9,13 @@
 
 namespace gplcart\modules\summernote\controllers;
 
-use gplcart\core\controllers\backend\Controller as BackendController;
+use gplcart\core\controllers\backend\Controller;
 
 /**
  * Handles incoming requests and outputs data related Summernote module settings
  */
-class Settings extends BackendController
+class Settings extends Controller
 {
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
 
     /**
      * Route page callback to display the module settings page
@@ -32,9 +24,7 @@ class Settings extends BackendController
     {
         $this->setTitleEditSettings();
         $this->setBreadcrumbEditSettings();
-
         $this->setDataModuleSettings();
-
         $this->submitSettings();
         $this->outputEditSettings();
     }
@@ -45,7 +35,7 @@ class Settings extends BackendController
     protected function setDataModuleSettings()
     {
         $settings = $this->module->getSettings('summernote');
-        $settings['selector'] = implode("\n", $settings['selector']);
+        $settings['selector'] = implode(PHP_EOL, $settings['selector']);
         $settings['config'] = gplcart_json_encode($settings['config'], true);
 
         $this->setData('settings', $settings);
