@@ -12,8 +12,21 @@
   ],
   "license": "GPL-3.0-or-later",
   "require": {
-    "gplcart/composer-module-installer": "*"
+    "gplcart/composer-module-installer": "^1",
+    "assets/summernote": "0.8.3"
   },
-  "minimum-stability": "dev",
-  "prefer-stable": true
+  "repositories": [
+    {
+      "type": "package",
+      "packagist.org": false,
+      "package": {
+        "name": "assets/summernote",
+        "version": "0.8.3",
+        "dist": {
+          "type": "zip",
+          "url": "https://github.com/summernote/summernote/archive/v0.8.3.zip"
+        }
+      }
+    }
+  ]
 }
