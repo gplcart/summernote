@@ -53,13 +53,10 @@ class Main
             'module' => 'summernote',
             'url' => 'https://github.com/summernote/summernote',
             'download' => 'https://github.com/summernote/summernote/archive/v0.8.3.zip',
-            'version_source' => array(
-                'file' => 'vendor/summernote/summernote/dist/summernote.min.js',
-                'pattern' => '/v(\\d+\\.+\\d+\\.+\\d+)/'
-            ),
+            'version' => '0.8.3',
             'files' => array(
-                'vendor/summernote/summernote/dist/summernote.min.js',
-                'vendor/summernote/summernote/dist/summernote.css'
+                'dist/summernote.min.js',
+                'dist/summernote.css'
             ),
             'dependencies' => array(
                 'jquery' => '>= 1.9.0',
@@ -131,7 +128,9 @@ class Main
     protected function setModuleAssets($controller)
     {
         if (!$controller->isInternalRoute()) {
+
             $settings = $this->module->getSettings('summernote');
+
             if (!empty($settings['selector']) && is_array($settings['selector'])) {
                 $controller->setJsSettings('summernote', $settings);
                 $controller->addAssetLibrary('summernote');
